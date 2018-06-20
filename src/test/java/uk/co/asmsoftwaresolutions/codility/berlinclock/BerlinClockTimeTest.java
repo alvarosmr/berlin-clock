@@ -1,14 +1,23 @@
 package uk.co.asmsoftwaresolutions.codility.berlinclock;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BerlinClockTimeTest {
+
+    @DisplayName("Testing null argument when factory method valueOf is called")
+    @Test
+    void when_NullArgument_expect_ExceptionThrown() {
+        assertThrows(NullPointerException.class, () -> BerlinClockTime.valueOf(null));
+    }
+
 
     @DisplayName("Testing single minutes row when factory method valueOf is called")
     @ParameterizedTest(name = "Time with \"{0}\" minute/s should show \"{1}\" lamp/s on in the single minutes row")

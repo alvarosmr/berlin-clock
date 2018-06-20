@@ -5,6 +5,8 @@ import com.google.common.base.Strings;
 import java.time.LocalTime;
 import java.util.Objects;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * A Berlin clock time immutable object representing the time as described on
  * https://en.wikipedia.org/wiki/Mengenlehreuhr.
@@ -39,6 +41,8 @@ public final class BerlinClockTime {
      * @return a BerlinClockTime with the specified time
      */
     public static BerlinClockTime valueOf(LocalTime localTime) {
+        requireNonNull(localTime, "Cannot create Berlin clock time from a null localTime");
+
         int hours = localTime.getHour();
         int minutes = localTime.getMinute();
 
