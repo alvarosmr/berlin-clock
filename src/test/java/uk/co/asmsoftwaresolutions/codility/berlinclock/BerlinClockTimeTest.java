@@ -49,7 +49,7 @@ public class BerlinClockTimeTest {
     @DisplayName("Testing single hours row when factory method valueOf is called")
     @ParameterizedTest(name = "Time with \"{0}\" hour/s should show \"{1}\" lamp/s on in the single hours row")
     @CsvSource({
-            "0, 4", "1, 1", "2, 2", "3, 3", "4, 4", "5, 0", "6, 1", "7, 2", "8, 3", "9, 4", "10, 0", "11, 1", "12, 2",
+            "0, 0", "1, 1", "2, 2", "3, 3", "4, 4", "5, 0", "6, 1", "7, 2", "8, 3", "9, 4", "10, 0", "11, 1", "12, 2",
             "13, 3", "14, 4", "15, 0", "16, 1", "17, 2", "18, 3", "19, 4", "20, 0", "21, 1", "22, 2", "23, 3"
     })
     void when_TimeIsGiven_expect_CorrectLampsOnSingleHoursRow(int hours, int expectedLampsOn) {
@@ -63,7 +63,7 @@ public class BerlinClockTimeTest {
     @DisplayName("Testing five hours row when factory method valueOf is called")
     @ParameterizedTest(name = "Time with \"{0}\" hour/s should show \"{1}\" lamp/s on in the five hours row")
     @CsvSource({
-            "0, 4", "1, 0", "2, 0", "3, 0", "4, 0", "5, 1", "6, 1", "7, 1", "8, 1", "9, 1", "10, 2", "11, 2", "12, 2",
+            "0, 0", "1, 0", "2, 0", "3, 0", "4, 0", "5, 1", "6, 1", "7, 1", "8, 1", "9, 1", "10, 2", "11, 2", "12, 2",
             "13, 2", "14, 2", "15, 3", "16, 3", "17, 3", "18, 3", "19, 3", "20, 4", "21, 4", "22, 4", "23, 4"
     })
     void when_TimeIsGiven_expect_CorrectLampsOnFiveHoursRow(int hours, int expectedLampsOn) {
@@ -95,9 +95,9 @@ public class BerlinClockTimeTest {
     @CsvSource({
             "15:30:01, O RRRO OOOO YYRYYROOOOO OOOO",
             "23:59:59, O RRRR RRRO YYRYYRYYRYY YYYY",
-            "00:00:00, Y RRRR RRRR OOOOOOOOOOO OOOO",
-            "00:00:01, O RRRR RRRR OOOOOOOOOOO OOOO",
-            "00:59:59, O RRRR RRRR YYRYYRYYRYY YYYY",
+            "00:00:00, Y OOOO OOOO OOOOOOOOOOO OOOO",
+            "00:00:01, O OOOO OOOO OOOOOOOOOOO OOOO",
+            "00:59:59, O OOOO OOOO YYRYYRYYRYY YYYY",
             "01:00:00, Y OOOO ROOO OOOOOOOOOOO OOOO"
     })
     void when_toStringIsCalled_expect_CorrectStringRepresentation(String localTime, String expectedString) {

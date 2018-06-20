@@ -35,8 +35,6 @@ public final class BerlinClockTime {
      * Static factory method to return a BerlinClockTime whose time is equivalent to that of the specified
      * {@code localTime}.
      *
-     * Note that zero hours in the LocalTime is represented by all the lamps on in the hours rows of the Berlin Clock.
-     *
      * @param localTime time of the Berlin clock time to return
      * @return a BerlinClockTime with the specified time
      */
@@ -44,8 +42,8 @@ public final class BerlinClockTime {
         int hours = localTime.getHour();
         int minutes = localTime.getMinute();
 
-        int lampsOnFiveHoursRow = hours == 0 ? 4 : hours / 5;
-        int lampsOnSingleHoursRow = hours == 0 ? 4 : hours % 5;
+        int lampsOnFiveHoursRow = hours / 5;
+        int lampsOnSingleHoursRow = hours % 5;
         int lampsOnFiveMinutesRow = minutes / 5;
         int lampsOnSingleMinutesRow = minutes % 5;
 
@@ -92,9 +90,9 @@ public final class BerlinClockTime {
      *
      *   - Time 15:30:01 -> "O RRRO OOOO YYRYYROOOOO OOOO"
      *   - Time 23:59:59 -> "O RRRR RRRO YYRYYRYYRYY YYYY"
-     *   - Time 00:00:00 -> "Y RRRR RRRR OOOOOOOOOOO OOOO"
-     *   - Time 00:00:01 -> "O RRRR RRRR OOOOOOOOOOO OOOO"
-     *   - Time 00:59:59 -> "O RRRR RRRR YYRYYRYYRYY YYYY"
+     *   - Time 00:00:00 -> "Y OOOO OOOO OOOOOOOOOOO OOOO"
+     *   - Time 00:00:01 -> "O OOOO OOOO OOOOOOOOOOO OOOO"
+     *   - Time 00:59:59 -> "O OOOO OOOO YYRYYRYYRYY YYYY"
      *   - Time 01:00:00 -> "Y OOOO ROOO OOOOOOOOOOO OOOO"
      */
     @Override
